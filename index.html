@@ -1,32 +1,18 @@
 ---
 layout: bootcamp
 root: .
-venue: Euphoric State University
-address: 123 College Street, Euphoria
+venue: University of Virginia
+address: 
 country: United-States
-humandate: Feb 17-18, 2020
+humandate: Mar 10-11 2014
 humantime: 9:00 am - 4:30 pm
-startdate: 2020-06-17
-enddate: 2020-06-18
-latlng: 41.7901128,-87.6007318
+startdate: 2014-03-10
+enddate: 2014-03-11
+latlng: 
 registration: restricted
-instructor: ["Grace Hopper", "Alan Turing"]
+instructor: ["Michael Hansen", "Stephen Turner", "Erik Bray"]
 contact: admin@software-carpentry.org
 ---
-<div align="center">
-  <p><strong><em>
-      This page is a template for bootcamp home pages.
-      <br/>
-      Please see
-      <a href="https://github.com/swcarpentry/bc">https://github.com/swcarpentry/bc</a>
-      for instructions on how to create
-      a repository for your bootcamp.
-      <br/>
-      Please also see
-      the <a href="{{page.root}}/lessons/index.html">index to our lessons</a>
-      and the <a href="{{page.root}}/lessons/setup.html">index to setup instructions</a>.
-  </em></strong></p>
-</div>
 {% include bootcamps/instructors.html %}
 {% include bootcamps/what.html %}
 {% include bootcamps/who.html %}
@@ -36,54 +22,43 @@ contact: admin@software-carpentry.org
 
 <hr/>
 
-<h2>Setup</h2>
+<h2>Typical Setup</h2>
+
+  {% include setup/vm.html %}
+
+<h2>Advanced Setup</h2>
+<p>
+    For advanced users who would like to install the individual required
+    software packages directly on their laptops (rather than downloading the
+    virtual machine), we provide links below for Windows, Mac OS X, and Linux.
+</p>
 
 <div class="row-fluid">
   <div class="span6">
     {% include setup/overview-bash.html %}
+    {% include setup/windows-bash.html %}
+    {% include setup/macosx-bash.html %}
+    {% include setup/linux-bash.html %}
+    <hr />
     {% include setup/overview-editor.html %}
+    {% include setup/windows-editor.html %}
+    {% include setup/macosx-editor.html %}
+    {% include setup/linux-editor.html %}
   </div>
   <div class="span6">
     {% include setup/overview-git.html %}
-    {% include setup/overview-python.html %}
+    {% include setup/windows-git.html %}
+    {% include setup/macosx-git.html %}
+    {% include setup/linux-git.html %}
   </div>
 </div>
 
-<hr/>
+<hr />
 
-<h2>Topics</h2>
-
-<div class="row-fluid">
-  <div class="span6">
-    <h3><a href="lessons/swc-shell/tutorial.html">The Unix Shell</a></h3>
-    <ul>
-      <li>{% include guide-shell/intro/title.md %}</li>
-      <li>{% include guide-shell/filedir/title.md %}</li>
-      <li>{% include guide-shell/create/title.md %}</li>
-      <li>{% include guide-shell/pipefilter/title.md %}</li>
-      <li>{% include guide-shell/loop/title.md %}</li>
-      <li>{% include guide-shell/scripts/title.md %}</li>
-      <li>{% include guide-shell/find/title.md %}</li>
-    </ul>
-  </div>
-  <div class="span6">
-    <h3><a href="lessons/swc-db/tutorial.html">Databases</a></h3>
-    <ul>
-      <li>{% include guide-db/select/title.md %}</li>
-      <li>{% include guide-db/distinct/title.md %}</li>
-      <li>{% include guide-db/filter/title.md %}</li>
-      <li>{% include guide-db/calc/title.md %}</li>
-      <li>{% include guide-db/sort/title.md %}</li>
-      <li>{% include guide-db/null/title.md %}</li>
-      <li>{% include guide-db/aggregate/title.md %}</li>
-      <li>{% include guide-db/grouping/title.md %}</li>
-      <li>{% include guide-db/join/title.md %}</li>
-      <li>{% include guide-db/create/title.md %}</li>
-      <li>{% include guide-db/transactions/title.md %}</li>
-      <li>{% include guide-db/programming/title.md %}</li>
-    </ul>
-  </div>
-</div>
+{% include setup/overview-python.html %}
+{% include setup/windows-python.html %}
+{% include setup/macosx-python.html %}
+{% include setup/linux-python.html %}
 
 <hr/>
 
@@ -92,5 +67,4 @@ contact: admin@software-carpentry.org
 <ul>
   <li><a href="{{page.root}}/lessons/ref/shell.html">The Unix Shell</a></li>
   <li><a href="{{page.root}}/lessons/ref/python.html">Python</a></li>
-  <li><a href="{{page.root}}/lessons/ref/sql.html">SQL</a></li>
 </ul>

@@ -43,8 +43,18 @@ if november_rain:
 else:
       print "There was *not* rain in November"
 
- 
-  ## Exercise 5:
+
+# Alternate version
+
+november_data = data[datetime(2012, 11, 1):datetime(2012, 11, 30)]
+november_rain = any( november_data["events"].str.contains("Rain") )
+
+if november_rain:
+      print "There was rain in November"
+else:
+      print "There was *not* rain in November"
+
+## Exercise 5:
   
   
 #  We'll replace "T" with a very small number, and convert the rest of the strings to floats:
