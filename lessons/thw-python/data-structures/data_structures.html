@@ -1,0 +1,1265 @@
+---
+layout: lesson
+root: ../../..
+title: Basic Python Containers; Lists, Dictionaries, Sets, Tuples
+---
+
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Based on lecture materials by Milad Fatenejad, Joshua R. Smith, Will Trimble, and Anthony Scopatz</strong></p>
+<p>Python would be a fairly useless language if it weren't for the compound data types. The main two are <strong>lists</strong> and <strong>dictionaries</strong>, but we'll discuss <strong>sets</strong> and <strong>tuples</strong> as well. I'll also go over reading text data from files.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="lists">Lists</h2>
+<p>A list is an ordered, indexable collection of data. Lets say you have collected some current and voltage data that looks like this:</p>
+<pre><code>voltages:
+-2.0
+-1.0
+ 0.0
+ 1.0
+ 2.0
+
+currents:
+-1.0
+-0.5
+ 0.0
+ 0.5
+ 1.0</code></pre>
+<p>So you could put that data into lists like</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">voltages</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+
+<span class="n">currents</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>voltages</strong> is of type list:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">voltages</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[2]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+list
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Python lists are indexed from zero. Therefore, to find the value of the first item in <code>voltages</code>:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">voltages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[3]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+-2.0
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And to find the value of the third item</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">voltages</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[4]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+0.0
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lists can be indexed from the back using a negative index. This expression gives us the last element of <code>currents</code>:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[5]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">currents</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[5]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+1.0
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and the next-to-last</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[6]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">currents</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[6]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+0.5
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can &quot;slice&quot; items from within a list. Lets say we wanted the second through fourth items from <code>voltages</code></p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">voltages</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[7]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[-1.0, 0.0, 1.0]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Slicing lists from the beginning until a given index or from a given index to the end is so common a task that it has a shortcut. If you omit the index to the left of the colon, it is interpreted as 0. If you omit the index to the right of the colon, it is interpreted as <code>len(&lt;list&gt;)</code>. So this expression takes all the elements starting from the third and continuing to the end of the list:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[8]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">voltages</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[8]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[0.0, 1.0, 2.0]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note: when taking slices, the elements returned <strong>include</strong> the <strong>starting</strong> index but <strong>exclude</strong> the <strong>final</strong> index.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">voltages</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">voltages</span><span class="p">)]</span>  <span class="c"># this expression gives the entire list.</span>
+<span class="n">voltages</span><span class="p">[:]</span>                <span class="c"># and this is the shortcut for the above.</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[9]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[-2.0, -1.0, 0.0, 1.0, 2.0]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <a href="http://docs.python.org/2/tutorial/introduction.html#lists">Python documentation--An informal Introduction to Python</a> contains more examples and more details about how to create and access instances of this utilitarian data structure.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="append-and-extend">Append and Extend</h3>
+<p>Just like strings have methods, lists do too.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[10]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="nb">dir</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[10]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[&apos;__add__&apos;,
+ &apos;__class__&apos;,
+ &apos;__contains__&apos;,
+ &apos;__delattr__&apos;,
+ &apos;__delitem__&apos;,
+ &apos;__delslice__&apos;,
+ &apos;__doc__&apos;,
+ &apos;__eq__&apos;,
+ &apos;__format__&apos;,
+ &apos;__ge__&apos;,
+ &apos;__getattribute__&apos;,
+ &apos;__getitem__&apos;,
+ &apos;__getslice__&apos;,
+ &apos;__gt__&apos;,
+ &apos;__hash__&apos;,
+ &apos;__iadd__&apos;,
+ &apos;__imul__&apos;,
+ &apos;__init__&apos;,
+ &apos;__iter__&apos;,
+ &apos;__le__&apos;,
+ &apos;__len__&apos;,
+ &apos;__lt__&apos;,
+ &apos;__mul__&apos;,
+ &apos;__ne__&apos;,
+ &apos;__new__&apos;,
+ &apos;__reduce__&apos;,
+ &apos;__reduce_ex__&apos;,
+ &apos;__repr__&apos;,
+ &apos;__reversed__&apos;,
+ &apos;__rmul__&apos;,
+ &apos;__setattr__&apos;,
+ &apos;__setitem__&apos;,
+ &apos;__setslice__&apos;,
+ &apos;__sizeof__&apos;,
+ &apos;__str__&apos;,
+ &apos;__subclasshook__&apos;,
+ &apos;append&apos;,
+ &apos;count&apos;,
+ &apos;extend&apos;,
+ &apos;index&apos;,
+ &apos;insert&apos;,
+ &apos;pop&apos;,
+ &apos;remove&apos;,
+ &apos;reverse&apos;,
+ &apos;sort&apos;]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One useful method is append. Lets say we want to stick the following data on the end of both our lists.</p>
+<pre><code>voltages:
+ 3.0
+ 4.0
+
+currents:
+ 1.5
+ 2.0</code></pre>
+<p>If you want to append items to the end of a list, use the append method.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[11]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="k">print</span> <span class="n">voltages</span>
+<span class="n">voltages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">voltages</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+[-2.0, -1.0, 0.0, 1.0, 2.0]
+[-2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[12]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="k">print</span> <span class="n">voltages</span>
+<span class="n">voltages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">voltages</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+[-2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
+[-2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[13]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">voltages</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[13]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[-2.0, -1.0, 0.0, 1.0, 2.0, 3.0, 4.0]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see how that approach might be tedious in certain cases. If you want to concatenate a list onto the end of another one, use extend.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[14]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="k">print</span> <span class="n">currents</span>
+<span class="n">currents</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">currents</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+[-1.0, -0.5, 0.0, 0.5, 1.0]
+[-1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[15]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">currents</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[15]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[-1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="length-of-lists">Length of Lists</h3>
+<p>Sometimes you want to know how many items are in a list. Use the len command.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[16]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="nb">len</span><span class="p">(</span><span class="n">voltages</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[16]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+7
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="heterogeneous-data">Heterogeneous Data</h3>
+<p>Lists can contain hetergeneous data.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[17]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_list</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;experiment: current vs. voltage&quot;</span><span class="p">,</span> 
+        <span class="s">&quot;run&quot;</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span>
+        <span class="s">&quot;temperature&quot;</span><span class="p">,</span> <span class="mf">372.756</span><span class="p">,</span> 
+        <span class="s">&quot;current&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> 
+        <span class="s">&quot;voltage&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+        <span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[18]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="k">print</span> <span class="n">data_list</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+[&apos;experiment: current vs. voltage&apos;, &apos;run&apos;, 47, &apos;temperature&apos;, 372.756, &apos;current&apos;, [-1.0, -0.5, 0.0, 0.5, 1.0], &apos;voltage&apos;, [-2.0, -1.0, 0.0, 1.0, 2.0]]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We've got strings, ints, floats, and even other lists in there.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="assigning-variables-to-other-variables">Assigning Variables to Other Variables</h2>
+<p>Something that might cause you headaches in the future is how python deals with assignment of one variable to another. When you set a variable equal to another, both variables point to the same thing. Changing the first one ends up changing the second. Be careful about this fact.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[19]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[20]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[21]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[22]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">b</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[22]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[1, 2, 10]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To actually make a copy of a list or a dict, use the <code>list()</code> and <code>dict()</code> builtin methods.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">a</span>
+<span class="k">print</span> <span class="n">b</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+[1, 2, 10]
+[1, 2]
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a diagnostic tool, if you are ever uncertain if an assignment is making two different variables, you can test whether two variables are actually distinct with the <code>is</code> operator:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[24]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[24]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+False
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There's a ton more to know about lists, but let's press on. Check out <a href="http://www.diveintopython.net/toc/index.html">Dive Into Python</a> or the <a href="http://docs.python.org/2/">Python documentation</a> for more info.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="tuples">Tuples</h2>
+<p>Tuples are another of Python's basic container data types. They are very similar to lists but with one major difference. Tuples are <strong>immutable</strong>. Once data is placed into a tuple, the tuple cannot be changed. You define a tuple as follows:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[25]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;white&quot;</span><span class="p">,</span> <span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[26]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[26]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+tuple
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can slice and index the tuple exactly like you would a list. Tuples are used in the inner workings of python, and a tuple can be used as a key in a dictionary, whereas a list cannot as we will see in a moment.</p>
+<p>See if you can retrieve the third element of <strong>tup</strong>:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[26]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="sets">Sets</h2>
+<p>The Python set type is similar to the idea of a mathematical set: it is an unordered collection of unique things. Consider:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[27]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">fruit</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You have to use a list to create a set.</p>
+<p>Since sets contain only unique items, there's only one banana in the set fruit.</p>
+<p>You can do things like intersections, unions, etc. on sets just like in math. Here's an example of an intersection of two sets (the common items in both sets).</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[28]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">bowl1</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[29]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">bowl2</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;watermelon&quot;</span><span class="p">,</span> <span class="s">&quot;orange&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[30]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">bowl1</span> <span class="o">&amp;</span> <span class="n">bowl2</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[30]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+{&apos;apple&apos;, &apos;peach&apos;}
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[31]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">bowl1</span> <span class="o">|</span> <span class="n">bowl2</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[31]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+{&apos;apple&apos;, &apos;banana&apos;, &apos;orange&apos;, &apos;peach&apos;, &apos;pear&apos;, &apos;watermelon&apos;}
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can read more in the <a href="http://docs.python.org/2/library/sets.html">sets documentation</a>.</p>
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="dictionaries">Dictionaries</h2>
+<p>A Python dictionary is a unordered collection of key-value pairs. Dictionaries are by far the most important data type in Python. The key is a way to name the data, and the value is the data itself. Here's a way to create a dictionary that contains all the data in our data.dat file in a more sensible way than a list.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[32]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;experiment&quot;</span><span class="p">:</span> <span class="s">&quot;current vs. voltage&quot;</span><span class="p">,</span>
+        <span class="s">&quot;run&quot;</span><span class="p">:</span> <span class="mi">47</span><span class="p">,</span>
+        <span class="s">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">372.756</span><span class="p">,</span> 
+        <span class="s">&quot;currents&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> 
+        <span class="s">&quot;voltages&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span>
+        <span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[33]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="k">print</span> <span class="n">data_dict</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt"></div>
+<div class="box-flex1 output_subarea output_stream output_stdout">
+<pre>
+{&apos;experiment&apos;: &apos;current vs. voltage&apos;, &apos;run&apos;: 47, &apos;temperature&apos;: 372.756, &apos;currents&apos;: [-1.0, -0.5, 0.0, 0.5, 1.0], &apos;voltages&apos;: [-2.0, -1.0, 0.0, 1.0, 2.0]}
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This model is clearly better because you no longer have to remember that the run number is in the second position of the list, you just refer directly to &quot;run&quot;:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[34]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span><span class="p">[</span><span class="s">&quot;run&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[34]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+47
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you wanted the voltage data list:</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[35]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span><span class="p">[</span><span class="s">&quot;voltages&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[35]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[-2.0, -1.0, 0.0, 1.0, 2.0]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or perhaps you wanted the last element of the current data list</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[36]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span><span class="p">[</span><span class="s">&quot;currents&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[36]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+1.0
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once a dictionary has been created, you can change the values of the data if you like.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[37]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span><span class="p">[</span><span class="s">&quot;temperature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3275.39</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also add new keys to the dictionary. Note that dictionaries are indexed with square braces, just like lists--they look the same, even though they're very different.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[38]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span><span class="p">[</span><span class="s">&quot;user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Johann G. von Ulm&quot;</span>
+</pre></div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Dictionaries, like strings, lists, and all the rest, have built-in methods. Lets say you wanted all the keys from a particular dictionary.</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[39]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[39]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[&apos;run&apos;, &apos;temperature&apos;, &apos;voltages&apos;, &apos;experiment&apos;, &apos;user&apos;, &apos;currents&apos;]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>also, values</p>
+</div>
+<div class="cell border-box-sizing code_cell vbox">
+<div class="input hbox">
+<div class="prompt input_prompt">
+In&nbsp;[40]:
+</div>
+<div class="input_area box-flex1">
+<div class="highlight"><pre><span class="n">data_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+
+<div class="vbox output_wrapper">
+<div class="output vbox">
+
+
+<div class="hbox output_area"><div class="prompt output_prompt">
+    Out[40]:</div>
+<div class="box-flex1 output_subarea output_pyout">
+
+
+<pre>
+[47,
+ 3275.39,
+ [-2.0, -1.0, 0.0, 1.0, 2.0],
+ &apos;current vs. voltage&apos;,
+ &apos;Johann G. von Ulm&apos;,
+ [-1.0, -0.5, 0.0, 0.5, 1.0]]
+</pre>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
