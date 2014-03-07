@@ -388,7 +388,7 @@ By default, `rm`, will NOT delete directories. You can tell `rm` to delete a dir
 
 The `wc` program (word count) counts the number of lines, words, and characters in one or more files. Make sure you are in the `data` directory, then enter the following command:
 
- wc bert/* gerdal/*4*
+    wc bert/* gerdal/*4*
 
 For each of the files indicated, `wc` has printed a line with three numbers. The first is the number of lines in that file. The second is the number of words. Finally, the total number of characters is indicated. The final line contains this information summed over all of the files. Thus, there were 10445 characters in total.
 
