@@ -267,19 +267,19 @@ This will print out the value of the `PATH` environment variable. More on enviro
 
 Navigate to the `lessons/thw-shell` directory and list the contents. You will notice that there is a program (executable file) called `hello` in this directory. Now, try to run the program by entering:
 
-    hello
+    helloworld
 
 You should get an error saying that hello cannot be found. That is because this directory is not in the `PATH`. You can run the `hello` program by entering:
 
-    ./hello
+    ./helloworld
 
 Remember that `.` is a shortcut for the current working directory. This tells the shell to run the `hello` program which is located right here. So, you can run any program by entering the path to that program. You can run `hello` equally well by specifying:
 
-    /home/swc/{{page.bootcamp_slug}}/lessons/thw-shell/hello
+    /home/swc/{{page.bootcamp_slug}}/lessons/thw-shell/helloworld
 
 Or by entering:
 
-    ../thw-shell/hello
+    ../thw-shell/helloworld
 
 When there are no `/` characters, the shell assumes you want to look in one of the default places for the program.
 
