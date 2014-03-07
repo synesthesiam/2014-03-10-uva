@@ -1,0 +1,222 @@
+1. Do each of the following using a single ls command without
+navigating to a different directory.
+
+List all of the files in /bin that contain the letter a
+
+List all of the files in /bin that contain the letter a or the letter b
+
+List all of the files in /bin that contain the letter a AND the letter b
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Print out the contents of the lessons/thw-shell/dictionary.txt
+file. What does this file contain?
+
+Without changing directories, (you should still be in lessons/thw-
+shell), use one short command to print the contents of all of the
+files in the /home/swc/2014-03-10-uva/lessons/thw-shell/data/thomas
+directory.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3. Use the commands we've learned so far to figure out how to search
+in reverse while using less.
+
+
+
+
+
+
+
+
+
+
+
+4. Use >>, to append the contents of all of the files which contain
+the number 4 in the directory:
+
+/homeswc2014-03-10-uvalessonsthw-shelldatagerdal
+
+to the existing all_data file. Thus, when you are done all_data should
+contain all of the experiment data from Bert and any experimental data
+file from Gerdal that contains the number 4.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. Do the following:
+
+a. Rename the all_data_IMPORTANT file to all_data.
+
+b. Create a directory in the data directory called foo
+
+c. Then, copy the all_data file into foo
+
+
+
+
+
+
+
+
+
+
+
+
+6. Figure out how to get wc to print the length of the longest line in
+all_data.
+
+
+
+
+
+
+
+
+
+
+
+7. Use the echo command and the append operator, >>, to append your
+name to the file, then sort it and make a new file called Sorted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+8. Use the man command to find out how to sort the output from wc in
+reverse order.
+
+
+
+
+
+
+
+
+
+
+
+
+9. Combine the wc, sort, head and tail commands so that only the wc
+information for the largest file is listed
+
+Hint: To print the smallest file, use:
+
+wc bert/* | sort -k 3 -n | head -n 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10. Create an executable script called smallestrange in the data
+directory, that is similar to the smallest script, but prints the file
+containing the file with the smallest Range. Use the commands grep,
+sort, and head or tail to do this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11. Navigate to the data directory. Use one find command to perform
+each of the operations listed below (except number 2, which does not
+require a find command):
+
+a. Find any file whose name is "NOTES" within data and delete it
+
+b. Create a new directory called cleaneddata
+
+c. Move all of the files within data to the cleaneddata directory
+
+d. Rename all of the files to ensure that they end in .txt (note: it
+is ok for the file name to end in .txt.txt
+
+Hint: If you make a mistake and need to start over just do the
+following:
+
+1. Navigate to the lessons/thw-shell directory
+
+2. Delete the data directory with rm -rf data
+
+3. Enter the command: git checkout -- data You should see that the
+data directory has reappeared in its original state
+
+BONUS
+
+Redo part d, except rename only the files which do not already end in
+.txt. You will have to use the man command to figure out how to search
+for files which do not match a certain name.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
