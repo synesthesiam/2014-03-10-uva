@@ -1284,6 +1284,11 @@ If she doesn't,
 then it's up to other scientists to decide whose work to build on,
 or whether to try to combine both approaches.
 
+### Exercise
+
+1. Partner up with another participant in the room. Designate the person on the left as "partner A" and the person on the right as "partner B". If you haven't created an account on GitHub, go ahead and do it (each person should have their own account).    
+
+
 ## The Opposite of "Open" Isn't "Closed", It's "Broken"
 
 Free sharing of information might be the ideal in science,
