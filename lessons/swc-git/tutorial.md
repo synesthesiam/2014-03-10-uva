@@ -1291,7 +1291,7 @@ or whether to try to combine both approaches.
 Partner up with another participant in the room. Designate the person on the left as "partner A" and the person on the right as "partner B". If you haven't created an account on GitHub, go ahead and do it (each person should have their own account).
 Work together to have partner A `cd` to your home directory, and use `mkdir` to create a new directory called `lessonstats`. Initialize this directory as a git repository with `git init`.
 
-Work together to have partner A use `nano` to write a script called `lessonstats.sh` that will find the software carpentry lesson with the most words. The lessons are stored in the `{{bootcamp_slug}}/lessons` directory, and end with the file extension `.md`. Use the following code to get you started:
+Work together to have partner A use `nano` to write a script called `lessonstats.sh` that will find the software carpentry lesson with the most words. The lessons are stored in the `{{page.bootcamp_slug}}/lessons` directory, and end with the file extension `.md`. Use the following code to get you started:
 
 ```bash
 #!/bin/bash
@@ -1300,7 +1300,7 @@ Work together to have partner A use `nano` to write a script called `lessonstats
 # Script to find the software carpentry lesson with the most words
 
 echo "Lesson with the most words:"
-find ~/{{bootcamp_slug}}/lessons/ -type f -name ".md" -exec wc {} \; # | more code here!!!
+find ~/{{page.bootcamp_slug}}/lessons/ -type f -name ".md" -exec wc {} \; # | more code here!!!
 echo
 
 # more code here!
