@@ -1,6 +1,8 @@
 ---
 layout: lesson
 root: ../..
+github_username: synesthesiam
+bootcamp_slug: 2014-03-10-uva
 title: Version Control with Git
 ---
 
@@ -122,18 +124,18 @@ our name,
 our email address,
 and that we want it to colorize output.
 
-There are a few more configuration variables to set depending on your OS. First, 
+There are a few more configuration variables to set depending on your OS. First,
 choose a text editor. We recommend that novices use [GNU
 nano](http://en.wikipedia.org/wiki/GNU_nano) because it's easy to use and
 works in most operating systems. Some other options
 might be TextEdit on the Mac, gedit on GNU/Linux or Notepad on Windows. The
 default on many systems is vi, which is not a friendly text editor for beginners.
 If they've installed a better editor for the workshop, use that instead.
-Make sure the editor runs from the command line as configured; use a full path if necessary. 
+Make sure the editor runs from the command line as configured; use a full path if necessary.
 
     $ git config --global core.editor "nano"
 
-The second OS-specific option deals with the different handling of line endings. If they ever collaborate 
+The second OS-specific option deals with the different handling of line endings. If they ever collaborate
 with a computer on another OS, this configuration will prevent headaches.
 
 On Mac:
@@ -1029,7 +1031,7 @@ Updating 5ae9631..2f20801
 Fast-forward
  moons.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
-$ cat moons.txt 
+$ cat moons.txt
 Phobos is larger than Deimos
 Lines added in the master and moons branches
 ```
@@ -1283,6 +1285,50 @@ which is analogous to merging a pull request.
 If she doesn't,
 then it's up to other scientists to decide whose work to build on,
 or whether to try to combine both approaches.
+
+### Exercise
+
+Partner up with another participant in the room. Designate the person on the left as "partner A" and the person on the right as "partner B". If you haven't created an account on GitHub, go ahead and do it (each person should have their own account).
+Work together to have partner A `cd` to your home directory, and use `mkdir` to create a new directory called `lessonstats`. Initialize this directory as a git repository with `git init`.
+
+Work together to have partner A use `nano` to write a script called `lessonstats.sh` that will find the software carpentry lesson with the most words. The lessons are stored in the `{{page.bootcamp_slug}}/lessons` directory, and end with the file extension `.md`. Use the following code to get you started:
+
+```bash
+#!/bin/bash
+
+# This is a comment
+# Script to find the software carpentry lesson with the most words
+
+echo "Lesson with the most words:"
+find ~/{{page.bootcamp_slug}}/lessons/ -type f -name ".md" -exec wc {} \; # | more code here!!!
+echo
+
+# more code here!
+```
+
+You will have to add to the line with the `find` command to get only the lesson with the most words. You will need to use two pipes, as well as the `sort`, `head`, and/or `tail` commands. The last echo command with no arguments just prints a blank line.
+
+Once both partners are happy with the results of this script, have partner a `git add` this to the staging area, and `git commit -m 'your message'` it to the local repository.
+
+Have partner A log on to <http://github.com> and create a new public repository (using the "+" button in the upper right). Call this repository "lessonstats". Using the instructions GitHub provides you, add a remote tracking branch called `origin` with `git remote add origin ...`, and push your master branch to the remote called `origin` using `git push origin master`.
+
+Now, have partner B log on to his/her own github account, and then find the repository partner A just created (github.com/partnerA_username/lessonstats). Partner B should fork this repository using the Fork button in the upper right. Once partner B has forked this repo, he/she should clone their own repo using a command like
+
+```bash
+cd ~
+git clone https://github.com/partnerB_username/lessonstats.git
+```
+
+Work together to have partner B to add to the script above adding three more lines like the one above to:
+
+1. `echo` a line with "Lesson with the fewest words:"
+2. Use a similar command as above with `find`, `-exec wc {} \;`, `sort`, `head`, and/or `tail` to print the lesson with the fewest words.
+3. `echo` one final blank line.
+
+Once both partners are happy with the results of this new script, have partner B add, commit, and push the changes to B's github account. Have partner B then navigate to his github repo page and initiate a pull request to partner A using the green button on the left (the one next to branch:master).
+
+Finally, have partner A merge the pull request automatically using Github, then pull down those changes to his/her local machine using `git pull`.
+
 
 ## The Opposite of "Open" Isn't "Closed", It's "Broken"
 
