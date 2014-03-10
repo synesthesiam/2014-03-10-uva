@@ -86,20 +86,21 @@ extention (i.e., .ipynb) is retained.
 
 *   Scientific Programming
     - [Student Notebook](python.ipynb)
-    - [Master Notebook](python-full.ipynb)
+    - [Reference Notebook](python-full.ipynb)
    
 *   Read Write Tutorial
     - [Student Notebook](readwrite-empty.ipynb)
-    - [Master Notebook](readwrite-full.ipynb)
+    - [Reference Notebook](readwrite-full.ipynb)
     - [File txt](sightings_recs_sm.txt), [File csv](sightings_tab_sm.csv)
 
 *   Matplotlib
     - [Student Notebook](matplotlib-empty.ipynb)
-    - [Master Notebook](matplotlib-full.ipynb)
+    - [Reference Notebook](matplotlib-full.ipynb)
     - [Image](ada.png)
 
 *   R and Python
-    - [R and Python tutorial](python-R-full.ipynb)
+    - [Student Notebook](python-R.ipynb)
+    - [Reference Notebook](python-R-full.ipynb)
 
 Starting an IPython Notebook
 ----------------------------
