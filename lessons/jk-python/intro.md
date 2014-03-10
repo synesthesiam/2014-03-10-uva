@@ -96,7 +96,7 @@ extention (i.e., .ipynb) is retained.
 *   Matplotlib
     - [Student Notebook](matplotlib-empty.ipynb)
     - [Master Notebook](matplotlib-full.ipynb)
-    - [Image](lena.png)
+    - [Image](ada.png)
 
 *   R and Python
     - [R and Python tutorial](python-R-full.ipynb)
