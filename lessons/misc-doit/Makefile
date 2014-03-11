@@ -6,11 +6,11 @@ counts:
 	mkdir -p counts
 	doit counts
 
-plots:
+plots: counts
 	mkdir -p plots
 	doit plots
 
-jpeg:
+jpeg: plots
 	cd plots; mogrify -negate -rotate 90 -crop 487x635+58+96 -format jpeg *.png
 
 clean:
