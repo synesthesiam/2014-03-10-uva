@@ -1308,6 +1308,8 @@ echo
 
 You will have to add to the line with the `find` command to get only the lesson with the most words. You will need to use two pipes, as well as the `sort`, `head`, and/or `tail` commands. The last echo command with no arguments just prints a blank line.
 
+Make sure to make your script executable by changing its permissions with `chmod a+x lessonstats.sh` before running it with `./lessonstats.sh`.
+
 Once both partners are happy with the results of this script, have partner a `git add` this to the staging area, and `git commit -m 'your message'` it to the local repository.
 
 Have partner A log on to <http://github.com> and create a new public repository (using the "+" button in the upper right). Call this repository "lessonstats". Using the instructions GitHub provides you, add a remote tracking branch called `origin` with `git remote add origin ...`, and push your master branch to the remote called `origin` using `git push origin master`.
