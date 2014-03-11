@@ -34,9 +34,9 @@ Like `make`, `doit` handles dependencies between *tasks* (instead of targets). I
 
 Each task function should return a dictionary with a few special fields:
 
-    * `actions` - the name of a Python function
-    * `file_dep` - name(s) of input file(s)
-    * `targets` - name(s) of output file(s)
+* `actions` - the name of a Python function
+* `file_dep` - name(s) of input file(s)
+* `targets` - name(s) of output file(s)
 
 DoIt is smart enough to figure out the order to run the tasks based on file dependencies and targets. If you run `doit` without arguments, it will run all tasks. Providing `doit` with an argument, such as `doit X` will just run the task named `task_X`.
 
